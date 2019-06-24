@@ -16,8 +16,12 @@ class MyApp extends StatelessWidget {
     //Cambiar el color de la barra de estatus del dispositivo, dependiendo del S.0
     if (Platform.isAndroid) {
       // Aqui va el transparent
+      // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      //   statusBarColor: Colors.transparent,
+      // ));
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: Colors.transparent,
+        statusBarColor: Colors.orange,
+        statusBarIconBrightness: Brightness.light,
       ));
     } else if (Platform.isIOS) {
       // Aqui el white

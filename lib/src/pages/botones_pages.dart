@@ -7,25 +7,29 @@ import 'package:flutter/material.dart'; //Paquete de material
 class BotonesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          //Fondo de la aplicacion y caja rosada con colores gradientes
-          _fondo(),
-          //Scroll
-          SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                //Titulos
-                _titulos(),
-                _botonesRedondeados(),
-              ],
-            ),
+    return SafeArea(
+      child: Container(
+        child: Scaffold(
+          body: Stack(
+            children: <Widget>[
+              //Fondo de la aplicacion y caja rosada con colores gradientes
+              _fondo(),
+              //Scroll
+              SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    //Titulos
+                    _titulos(),
+                    _botonesRedondeados(),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+          //Tabs footer
+          bottomNavigationBar: _bottomNavigationBarOld(context),
+        ),
       ),
-      //Tabs footer
-      bottomNavigationBar: _bottomNavigationBarOld(context),
     );
   }
 
@@ -144,25 +148,28 @@ class BotonesPage extends StatelessWidget {
   }
 
   Widget _botonesRedondeados() {
-    return Table(
-      children: [
-        TableRow(children: [
-          _crearBoton(Colors.blue, Icons.border_all, 'General'),
-          _crearBoton(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
-        ]),
-        TableRow(children: [
-          _crearBoton(Colors.pinkAccent, Icons.shop, 'Buy'),
-          _crearBoton(Colors.orange, Icons.insert_drive_file, 'File'),
-        ]),
-        TableRow(children: [
-          _crearBoton(Colors.blueAccent, Icons.movie_filter, 'Entertaiment'),
-          _crearBoton(Colors.green, Icons.cloud, 'Grocery'),
-        ]),
-        TableRow(children: [
-          _crearBoton(Colors.red, Icons.collections, 'Photos'),
-          _crearBoton(Colors.teal, Icons.help_outline, 'Grocery'),
-        ])
-      ],
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      child: Table(
+        children: [
+          TableRow(children: [
+            _crearBoton(Colors.blue, Icons.border_all, 'General'),
+            _crearBoton(Colors.purpleAccent, Icons.directions_bus, 'Bus'),
+          ]),
+          TableRow(children: [
+            _crearBoton(Colors.pinkAccent, Icons.shop, 'Buy'),
+            _crearBoton(Colors.orange, Icons.insert_drive_file, 'File'),
+          ]),
+          TableRow(children: [
+            _crearBoton(Colors.blueAccent, Icons.movie_filter, 'Entertaiment'),
+            _crearBoton(Colors.green, Icons.cloud, 'Grocery'),
+          ]),
+          TableRow(children: [
+            _crearBoton(Colors.red, Icons.collections, 'Photos'),
+            _crearBoton(Colors.teal, Icons.help_outline, 'Grocery'),
+          ])
+        ],
+      ),
     );
   }
 
@@ -171,7 +178,7 @@ class BotonesPage extends StatelessWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
         child: Container(
-          height: 145.0,
+          height: 140.0,
           margin: EdgeInsets.all(20.0),
           decoration: BoxDecoration(
             color: Color.fromRGBO(62, 66, 107, 0.7),
@@ -183,7 +190,7 @@ class BotonesPage extends StatelessWidget {
               SizedBox(height: 5.0),
               CircleAvatar(
                 backgroundColor: color,
-                // radius: 30.0,
+                radius: 25.0,
                 child: Icon(icono, color: Colors.white, size: 30.0),
               ),
               Text(
